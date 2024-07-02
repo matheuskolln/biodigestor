@@ -40,8 +40,6 @@ int p_tanque1 = 0;
 int p_tanque2 = 10;
 
 //MQTT / Node-Red cfg
-//const char* ssid = "Contato Internet - Bru e Mo";
-//const char* password = "03302212";
 const char* ssid = "lab120";
 const char* password = "labredes120";
 const char* mqtt_server = "broker.mqtt-dashboard.com";
