@@ -222,9 +222,9 @@ void postData(float tempDS1820, float tempBMP280, float pressureBMP280) {
     http.begin("http://localhost/measurements/");
     http.addHeader("Content-Type", "application/json");
 
-    String postData = "{\"temperature_DS1820\": " + String(tempDS1820) +
-                      ", \"temperature_BMP280\": " + String(tempBMP280) +
-                      ", \"pressure_BMP280\": " + String(pressureBMP280) + "}";
+    String postData = "{\"internal_temperature\": " + String(tempDS1820) +
+                      ", \"external_temperature\": " + String(tempBMP280) +
+                      ", \"main_pressure\": " + String(pressureBMP280) + "}";
 
     int httpResponseCode = http.POST(postData);
 
