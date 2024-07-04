@@ -20,7 +20,7 @@ body {
 .login-container {
   font-family: "Roboto", sans-serif;
   width: 60%; /* Cover 60% of the viewport width */
-  height: 50vh; /* Cover 50% of the viewport height */
+  height: 70vh; /* Cover 50% of the viewport height */
   margin: auto;
   padding: 30px;
   border-radius: 8px;
