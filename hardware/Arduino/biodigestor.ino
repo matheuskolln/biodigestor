@@ -7,8 +7,8 @@
 #include <PubSubClient.h>
 
 // DEFINIÇÕES
-#define DS18B20        4 
-#define pinSensorGas  34 
+#define DS18B20        4
+#define pinSensorGas  34
 #define pinBuzzer     27
 #define ledVerde      26
 #define ledVermelho   14
@@ -70,7 +70,7 @@ void setup_wifi() {
   Serial.println("WiFi connected");
   Serial.println("IP address: ");
   Serial.println(WiFi.localIP());
-  
+
   delay(2000);
 }
 
@@ -106,7 +106,7 @@ void setup() {
   client.setServer(mqtt_server, 1883);
 
   Sensor.begin();
-  
+
   unsigned status;
   status = bmp.begin(0x76);
   if (!status) {
@@ -120,7 +120,7 @@ void setup() {
                   Adafruit_BMP280::FILTER_X16,      /* Filtering. */
                   Adafruit_BMP280::STANDBY_MS_500); /* Standby time. */
 
- Serial.println("Fim do setup()"); 
+ Serial.println("Fim do setup()");
 }
 
 void loop() {
@@ -141,7 +141,7 @@ void loop() {
   leitura_DS1820 = Sensor.getTempCByIndex(0);
   leitura_BMP280 = bmp.readTemperature();
   pressao_BMP280 = bmp.readPressure();
-  
+
   client.publish("Temperatura_DS1820", String(leitura_DS1820).c_str());
   client.publish("Temperatura_BMP280", String(leitura_BMP280).c_str());
   client.publish("Pressao_BMP280", String(pressao_BMP280).c_str());
@@ -149,8 +149,8 @@ void loop() {
   postData(leitura_DS1820, leitura_BMP280, pressao_BMP280);
 
   Serial.print(leitura_DS1820);
-  Serial.println("ºC by DS18B20"); 
-  Serial.println("--------------------------------------"); 
+  Serial.println("ºC by DS18B20");
+  Serial.println("--------------------------------------");
   Serial.print(F("Temperature = "));
   Serial.print(leitura_BMP280);
   Serial.println(" ºC by BMP280");
@@ -184,7 +184,7 @@ void loop() {
     delay(2000); // LED Verde acende por 2 segundos
     desligaLed(ledVerde);
   }
- 
+
   delay(2000);
 }
 
@@ -197,8 +197,8 @@ void disparaSirene(byte pin, int intervalo) {
     ultimaTroca = millis();
     Serial.println("DISPARO");
   }
-  
-  digitalWrite(pin, nivel);  
+
+  digitalWrite(pin, nivel);
 }
 
 void desligaSirene(byte pin) {
@@ -219,12 +219,13 @@ void desligaLed(byte pin) {
 void postData(float tempDS1820, float tempBMP280, float pressureBMP280) {
   if (WiFi.status() == WL_CONNECTED) {
     HTTPClient http;
-    http.begin("http://localhost/measurements/");
+    http.begin("https://matheusmedeor.pythonanywhere.com/measurements/");
     http.addHeader("Content-Type", "application/json");
 
     String postData = "{\"internal_temperature\": " + String(tempDS1820) +
                       ", \"external_temperature\": " + String(tempBMP280) +
-                      ", \"main_pressure\": " + String(pressureBMP280) + "}";
+                      ", \"main_pressure\": " + String(pressureBMP280) +
+                      ", \"gas_level\": " + String(analogRead(pinSensorGas)) + "}";
 
     int httpResponseCode = http.POST(postData);
 
