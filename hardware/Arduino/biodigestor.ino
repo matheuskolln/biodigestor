@@ -21,6 +21,7 @@
 // DECLARAÇÃO DE FUNÇÕES
 void disparaSirene(byte pin, int intervalo);
 void desligaSirene(byte pin);
+void postData(float tempDS1820, float tempBMP280, float pressureBMP280);
 
 //Instancia o Objeto oneWire e Seta o pino do Sensor para iniciar as leituras
 OneWire oneWire(DS18B20);
@@ -145,6 +146,8 @@ void loop() {
   client.publish("Temperatura_BMP280", String(leitura_BMP280).c_str());
   client.publish("Pressao_BMP280", String(pressao_BMP280).c_str());
 
+  postData(leitura_DS1820, leitura_BMP280, pressao_BMP280);
+
   Serial.print(leitura_DS1820);
   Serial.println("ºC by DS18B20"); 
   Serial.println("--------------------------------------"); 
@@ -210,4 +213,32 @@ void ligaLed(byte pin) {
 
 void desligaLed(byte pin) {
   digitalWrite(pin, LOW);
+}
+
+
+void postData(float tempDS1820, float tempBMP280, float pressureBMP280) {
+  if (WiFi.status() == WL_CONNECTED) {
+    HTTPClient http;
+    http.begin("http://localhost/measurements/");
+    http.addHeader("Content-Type", "application/json");
+
+    String postData = "{\"internal_temperature\": " + String(tempDS1820) +
+                      ", \"external_temperature\": " + String(tempBMP280) +
+                      ", \"main_pressure\": " + String(pressureBMP280) + "}";
+
+    int httpResponseCode = http.POST(postData);
+
+    if (httpResponseCode > 0) {
+      String response = http.getString();
+      Serial.println(httpResponseCode);
+      Serial.println(response);
+    } else {
+      Serial.print("Error on sending POST: ");
+      Serial.println(httpResponseCode);
+    }
+
+    http.end();
+  } else {
+    Serial.println("WiFi Disconnected");
+  }
 }
