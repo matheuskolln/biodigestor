@@ -1,6 +1,6 @@
-// LogoutButton.js
-
 import React from "react";
+import "./LogoutButton.css";
+
 const LogoutButton = () => {
   const handleLogout = () => {
     window.location.href = "/";
