@@ -1,0 +1,88 @@
+/* Global.css */
+
+body {
+  font-family: "Roboto", sans-serif;
+  margin: 0;
+  padding: 0;
+  background-color: #f0f0f0; /* Fallback background color */
+  background-image: url("/public/icon.png"); /* Replace with your icon path */
+  background-size: 150px; /* Adjust size of the icon */
+  background-repeat: repeat; /* Repeat the icon */
+  background-position: center center; /* Center the icon */
+}
+
+.container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh; /* Ensure full viewport height */
+}
+.login-container {
+  font-family: "Roboto", sans-serif;
+  width: 60%; /* Cover 60% of the viewport width */
+  height: 50vh; /* Cover 50% of the viewport height */
+  margin: auto;
+  padding: 30px;
+  border-radius: 8px;
+  background-color: #ffffff;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.login-title {
+  font-size: 64px;
+  font-weight: 600;
+  color: #202124;
+  text-align: center;
+  margin-bottom: 20px;
+}
+
+.form-group {
+  margin-bottom: 20px;
+}
+
+.form-group label {
+  display: block;
+  margin-bottom: 8px;
+  color: #5f6368;
+  font-size: 32px;
+}
+
+.form-group input {
+  width: 100%;
+  padding: 14px 4px;
+  font-size: 32px;
+  border: 1px solid #ddd;
+  border-radius: 4px;
+  margin-left: -4px;
+}
+
+.form-group input:focus {
+  outline: none;
+  border-color: #2b9903;
+  box-shadow: 0 0 8px rgba(17, 208, 0, 0.4);
+}
+
+.error-message {
+  color: #ff0000;
+  margin-top: 12px;
+}
+
+.submit-btn {
+  width: 100%;
+  padding: 14px;
+  font-size: 42px;
+  font-weight: bold;
+  color: #ffffff;
+  background-color: #089218;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.submit-btn:hover {
+  background-color: #00d92b;
+}

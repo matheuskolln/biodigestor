@@ -1,0 +1,51 @@
+/* Measurements.css */
+
+/* Container Styles */
+.measurements-container {
+  font-family: "Roboto", sans-serif;
+  margin: 20px auto;
+  padding: 20px;
+  max-width: 800px;
+  background-color: #fff; /* White background */
+  border-radius: 8px;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1); /* Light shadow */
+}
+
+/* Heading Styles */
+.measurements-title {
+  font-size: 28px;
+  font-weight: 500;
+  color: #202124; /* Dark text color */
+  margin-bottom: 20px;
+}
+
+/* Table Styles */
+.measurements-table {
+  width: 100%;
+  border-collapse: collapse;
+  margin-top: 20px;
+  border-radius: 8px;
+  overflow: hidden; /* Hide overflow for rounded corners */
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Light shadow */
+}
+
+.measurements-table th,
+.measurements-table td {
+  padding: 12px;
+  text-align: center;
+  border-bottom: 1px solid #f1f3f4; /* Light border color */
+}
+
+.measurements-table th {
+  background-color: #f8f9fa; /* Light background for header */
+  font-weight: 500;
+  color: #5f6368; /* Medium-dark text color */
+}
+
+.measurements-table tbody tr:nth-child(even) {
+  background-color: #f1f3f4; /* Lighter alternate row background */
+}
+
+.measurements-table tbody tr:hover {
+  background-color: #eceff1; /* Light hover background */
+}
