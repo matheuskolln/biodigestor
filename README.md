@@ -60,6 +60,8 @@ Para o hardware do sistema foi desenvolvido uma PCB como protótipo, abaixo imag
 Observação Geral:
 
 - Os pinos de leitura analógica devem estar no ADC1 devido ao uso do Wi-Fi, que interfere com o ADC2.
+### Referências das Pinagens
+![Pinagem](referências)
 
 ## Configuração de Software
 
