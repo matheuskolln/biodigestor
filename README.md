@@ -36,7 +36,7 @@ O sistema de gerenciamento do biodigestor utiliza os seguintes componentes de ha
 
 ### PCB
 
-Para o hardware do sistema foi desenvolvido uma PCB com protótipo, abaixo imagens do circuito:
+Para o hardware do sistema foi desenvolvido uma PCB como protótipo, abaixo imagens do circuito:
 ![PCB](https://github.com/matheuskolln/biodigestor/blob/main/hardware/pcb.png)
 
 ### Observações Técnicas Importantes
