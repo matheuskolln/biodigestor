@@ -61,7 +61,7 @@ Observação Geral:
 
 - Os pinos de leitura analógica devem estar no ADC1 devido ao uso do Wi-Fi, que interfere com o ADC2.
 ### Referências das Pinagens
-![Pinagem](referências)
+![Pinagem](https://github.com/matheuskolln/biodigestor/blob/main/hardware/38_Pinos.png)
 
 ## Configuração de Software
 
