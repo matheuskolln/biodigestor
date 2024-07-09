@@ -350,7 +350,9 @@ Node-RED é uma ferramenta de programação visual que permite conectar disposit
 Utilizamos o Node-RED para montar um dashboard interativo, que nos permite monitorar em tempo real os dados coletados pelos sensores do nosso Sistema de Gerenciamento de Biodigestor. Esta plataforma nos possibilita visualizar informações como temperatura, pressão e níveis de gás, proporcionando uma maneira eficiente de 
 acompanhar e gerenciar o desempenho do biodigestor.
 
-O flow do projeto está disponivel em `hardware`.
+O flow do projeto está disponivel em `hardware/flows.json`.
+
+![node_red](https://github.com/matheuskolln/biodigestor/blob/main/hardware/node-red/Captura%20de%20tela%20de%202024-07-09%2017-29-55.png)
 
 
 # Biodigestor Server
