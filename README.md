@@ -343,6 +343,16 @@ Abaixo vamos a uma explicação do código:
 
 Durante os testes de uso dos sensores, precisamos identificar qual é o endereço do sensor BMP280. Para isso é preciso rodar o código `for_ic2.ino` em `hardware/testes`. Apos ter o endreço do sensor na função stup do código é nescessário passar o valor correto em `status = bmp.begin(0x76);`. No nosso caso o endereço era `0x76`.
 
+## Ultilização do Node-Red
+
+Node-RED é uma ferramenta de programação visual que permite conectar dispositivos, APIs e serviços online de maneira intuitiva. Com uma interface baseada em fluxos, o Node-RED facilita a criação e a implementação de lógica de controle e automação.
+
+Utilizamos o Node-RED para montar um dashboard interativo, que nos permite monitorar em tempo real os dados coletados pelos sensores do nosso Sistema de Gerenciamento de Biodigestor. Esta plataforma nos possibilita visualizar informações como temperatura, pressão e níveis de gás, proporcionando uma maneira eficiente de 
+acompanhar e gerenciar o desempenho do biodigestor.
+
+O flow do projeto está disponivel em `hardware`.
+
+
 # Biodigestor Server
 
 This is the server for the biodigestor project. It is a REST API that allows the client to interact with the biodigestor and perform actions such as reading the data and posting into the database.
